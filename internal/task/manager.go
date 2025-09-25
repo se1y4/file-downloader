@@ -4,7 +4,6 @@ import (
     "context"
     "fmt"
     "log"
-    "os"
     "sync"
     "time"
 )
@@ -13,7 +12,7 @@ type TaskManager struct {
     tasks      map[string]*DownloadTask
     mu         sync.RWMutex
     storage    Storage
-    downloader *FileDownloader
+    downloader FileDownloader
     workQueue  chan *DownloadTask
     workers    int
     ctx        context.Context
